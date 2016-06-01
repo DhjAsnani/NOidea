@@ -1,5 +1,6 @@
 package son_gohan.noidea;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -47,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             Toast.makeText(this,"Hey Im here Settings",Toast.LENGTH_SHORT).show();
             return true;
+        }
+        if(id == R.id.navigate)
+        {
+            startActivity(new Intent(this,SubActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
