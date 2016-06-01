@@ -42,8 +42,8 @@ public class SubActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if(id == android.R.id.home)
         {
-            //TODO : we are going to use NavUtil Class here
-            startActivity(new Intent(this,MainActivity.class));
+            //TODO : we are going to use NavUtil Class here, add parent info in manifest
+            NavUtils.navigateUpFromSameTask(this);
         }
 
         return super.onOptionsItemSelected(item);
