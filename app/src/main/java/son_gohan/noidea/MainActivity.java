@@ -11,9 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentActivity;
+
 
 public class MainActivity extends AppCompatActivity {
      private NavigationDrawerFragment drawerFragment;
@@ -32,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        drawerFragment = (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+        drawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setup((DrawerLayout)findViewById(R.id.drawer_layout),toolbar);
     }
 

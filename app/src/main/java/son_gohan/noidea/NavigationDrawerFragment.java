@@ -2,19 +2,22 @@ package son_gohan.noidea;
 
 
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toolbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * A simple {@lin Fragment} subclass.
  */
-public class NavigationDrawerFragment extends Fragment {
+public class NavigationDrawerFragment extends android.app.Fragment {
 
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
