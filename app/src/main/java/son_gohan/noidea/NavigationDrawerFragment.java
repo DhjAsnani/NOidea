@@ -81,6 +81,13 @@ public class NavigationDrawerFragment extends android.app.Fragment {
             mDrawerLayout.openDrawer(containerView);
         }
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+        // adding a hamburger icon
+        mDrawerLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                mDrawerToggle.syncState();
+            }
+        });
     }
     public static void saveToPreferences(Context context, String preferenceName, String preferenceValue){
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_FILE_NAME,Context.MODE_PRIVATE);
