@@ -21,6 +21,7 @@ import android.support.v4.widget.DrawerLayout;
  */
 public class NavigationDrawerFragment extends android.app.Fragment {
 
+    private View containerView;
     public static final String PREF_FILE_NAME = "testpref";
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
@@ -50,19 +51,35 @@ public class NavigationDrawerFragment extends android.app.Fragment {
     }
 
 
-    public void setup(DrawerLayout drawerLayout, android.support.v7.widget.Toolbar toolbar) {
+    public void setup(int fragmentId, DrawerLayout drawerLayout, android.support.v7.widget.Toolbar toolbar) {
+        containerView = getActivity().findViewById(fragmentId);
     mDrawerLayout = drawerLayout;
         mDrawerToggle = new ActionBarDrawerToggle(getActivity(),drawerLayout,toolbar,R.string.drawer_open,R.string.drawer_close){
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
+                //if user has not seen the drawer yet
+                if(!mUserLearnedDrawer)
+                {
+                    mUserLearnedDrawer = true;
+                    saveToPreferences(getActivity(),KEY_USER_LEARNED_DRAWER,mUserLearnedDrawer+"");
+                }
+                getActivity().invalidateOptionsMenu();
+
             }
 
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
+                getActivity().invalidateOptionsMenu();
+
             }
+
         };
+        if(!mUserLearnedDrawer && !mFromSavedInstances)
+        {
+            mDrawerLayout.openDrawer(containerView);
+        }
         mDrawerLayout.setDrawerListener(mDrawerToggle);
     }
     public static void saveToPreferences(Context context, String preferenceName, String preferenceValue){

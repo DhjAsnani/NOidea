@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         drawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
-        drawerFragment.setup((DrawerLayout)findViewById(R.id.drawer_layout),toolbar);
+        drawerFragment.setup(R.id.fragment_navigation_drawer,(DrawerLayout)findViewById(R.id.drawer_layout),toolbar);
     }
 
     @Override
